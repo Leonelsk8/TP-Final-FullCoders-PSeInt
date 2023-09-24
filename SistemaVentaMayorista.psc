@@ -1,4 +1,4 @@
-Funcion CrearProducto ( productos Por Referencia,contadorProductos Por Referencia )
+Funcion CrearProducto ( productos Por Referencia,contadorProductos Por Referencia )  //las variables viene por referencia, asi puedan ser editadas desde la funcion
 	Si contadorProductos < 100 Entonces
 		Escribir("Ingrese el nombre del producto:")
 		Leer productos[contadorProductos,1]
