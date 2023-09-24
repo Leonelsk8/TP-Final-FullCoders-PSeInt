@@ -98,9 +98,8 @@ Fin Funcion
 
 
 Algoritmo SistemaVentaMayorista
-    // Definir arrays para productos y ventas
-    Dimension productos[100,2] // 100 productos, cada uno con nombre y precio
-    Dimension ventas[100,4]   // 100 ventas, cada una con cliente, dni, y monto
+    Dimension productos[100,2] // limite de 100 productos, cada uno con nombre y precio
+    Dimension ventas[100,4]   // limite de 100 ventas, cada una con cliente, dni, productos e importe total
 	
     // Variable para el contador de productos
     Definir contadorProductos como Entero
@@ -121,7 +120,7 @@ Algoritmo SistemaVentaMayorista
         Escribir("Seleccione una opción:")
         Leer opcionMenu
 		
-        Segun opcionMenu Hacer
+        Segun opcionMenu Hacer  //llamar a las funciones dependiedo el caso seleccioando
             Caso 1:
                 CrearProducto(productos, contadorProductos)
             Caso 2:
