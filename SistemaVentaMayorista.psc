@@ -15,7 +15,7 @@ Funcion EditaPrecio( productos Por Referencia, contadorProductos Por Referencia 
 	Escribir("Ingrese el nombre del producto a modificar:")
 	Leer nombreProducto
 	Definir existe Como Logico
-	existe <- Falso
+	existe <- Falso  //variable auxiliar para saber si existe el producto buscado
 	
 	Para i <- 1 Hasta contadorProductos
 		Si productos[i,1] = nombreProducto Entonces
