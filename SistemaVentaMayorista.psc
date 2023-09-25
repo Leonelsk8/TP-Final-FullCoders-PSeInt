@@ -66,7 +66,7 @@ Funcion CrearVenta ( ventas Por Referencia, productos, contadorProductos, contad
 				Leer cantidadProducto 
 				costoProducto <- ConvertirANumero(productos[i,2]) * cantidadProducto
 				importeTotal <- importeTotal + costoProducto
-				productosVendidos <- productosVendidos + nombreProductoVenta
+				productosVendidos <- productosVendidos + nombreProductoVenta + ", "
 			FinSi
 		FinPara
 		
@@ -84,7 +84,7 @@ Funcion CrearVenta ( ventas Por Referencia, productos, contadorProductos, contad
 	ventas[contadorVentas,1] <- nombreCliente
 	ventas[contadorVentas,2] <- dniCliente
 	ventas[contadorVentas,3] <- productosVendidos
-	ventas[contadorVentas,4] <- ConvertirATexto(importeTotal)
+	ventas[contadorVentas,4] <- ConvertirATexto(importeTotal)  //Esto es para poder agregar al arreglo, porque solo pueden ser de un solo tipo
 	
 	Escribir("Venta realizada exitosamente.")
 Fin Funcion
@@ -143,5 +143,5 @@ Algoritmo SistemaVentaMayorista
             Otro:
                 Escribir("Opción no válida. Intente de nuevo.")
         Fin Segun
-    Hasta Que opcion = 6
+    Hasta Que opcionMenu = 6
 FinAlgoritmo	
