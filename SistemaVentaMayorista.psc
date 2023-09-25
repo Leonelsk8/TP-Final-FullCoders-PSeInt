@@ -1,10 +1,10 @@
 Funcion CrearProducto ( productos Por Referencia,contadorProductos Por Referencia )  //las variables viene por referencia, asi puedan ser editadas desde la funcion
 	Si contadorProductos < 100 Entonces
+		contadorProductos <- contadorProductos + 1
 		Escribir("Ingrese el nombre del producto:")
 		Leer productos[contadorProductos,1]
 		Escribir("Ingrese el precio del producto:")
 		Leer productos[contadorProductos,2]
-		contadorProductos <- contadorProductos + 1
 		Escribir("Producto creado exitosamente.")
 	Sino
 		Escribir("No se pueden agregar más productos. Límite alcanzado.")
@@ -33,11 +33,15 @@ Funcion EditaPrecio( productos Por Referencia, contadorProductos Por Referencia 
 Fin Funcion
 
 Funcion MostrarProductos ( productos, contadorProductos )
-	Para i<-1 Hasta contadorProductos - 1 Hacer
-		Escribir "Producto ",i,":"
-		Escribir "Nombre: ",productos[i,1]
-		Escribir "Precio: ",productos[i,2]
-	Fin Para
+	Si contadorProductos > 0 Entonces
+		Para i<-1 Hasta contadorProductos Hacer
+			Escribir "Producto ",i,":"
+			Escribir "Nombre: ",productos[i,1]
+			Escribir "Precio: ",productos[i,2]
+		Fin Para
+	SiNo
+		Escribir ("No hay productos para mostrar")
+	Fin Si
 Fin Funcion
 
 Funcion CrearVenta ( ventas Por Referencia, productos, contadorProductos, contadorVentas Por Referencia )
@@ -76,26 +80,29 @@ Funcion CrearVenta ( ventas Por Referencia, productos, contadorProductos, contad
 		Escribir "Descuento realizado del 20%, monto superó los 10000"
 	FinSi
 	
+	contadorVentas <- contadorVentas + 1
 	ventas[contadorVentas,1] <- nombreCliente
 	ventas[contadorVentas,2] <- dniCliente
 	ventas[contadorVentas,3] <- productosVendidos
 	ventas[contadorVentas,4] <- ConvertirATexto(importeTotal)
-	contadorVentas <- contadorVentas + 1
 	
 	Escribir("Venta realizada exitosamente.")
 Fin Funcion
 
 Funcion MostrarVentas ( ventas, contadorVentas )
-	Para i<-1 Hasta contadorVentas - 1 Hacer
-		Escribir "Venta ",i,":"
-		Escribir "Cliente: ",ventas[i,1]
-		Escribir "DNI: ",ventas[i,2]
-		Escribir "Productos vendidos: ",ventas[i,3]
-		Escribir "Importe total: $",ventas[i,4]
-	Fin Para
+	Si contadorVentas > 0 Entonces
+		Para i<-1 Hasta contadorVentas Hacer
+			Escribir "Venta ",i,":"
+			Escribir "Cliente: ",ventas[i,1]
+			Escribir "DNI: ",ventas[i,2]
+			Escribir "Productos vendidos: ",ventas[i,3]
+			Escribir "Importe total: $",ventas[i,4]
+		Fin Para
+	SiNo
+		Escribir ("No hay ventas para mostrar")
+	Fin Si
+	
 Fin Funcion
-
-
 
 Algoritmo SistemaVentaMayorista
     Dimension productos[100,2] // limite de 100 productos, cada uno con nombre y precio
@@ -103,11 +110,11 @@ Algoritmo SistemaVentaMayorista
 	
     // Variable para el contador de productos
     Definir contadorProductos como Entero
-    contadorProductos <- 1
+    contadorProductos <- 0
 	
     // Variable para el contador de ventas
     Definir contadorVentas como Entero
-    contadorVentas <- 1
+    contadorVentas <- 0
 	
     // Menú principal
     Repetir
