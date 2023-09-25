@@ -32,7 +32,7 @@ Funcion EditaPrecio( productos Por Referencia, contadorProductos Por Referencia 
 	FinSi
 Fin Funcion
 
-Funcion MostrarProductos ( productos, contadorProductos )
+Funcion MostrarProductos ( productos, contadorProductos )  //acá no hy necesidad de traer por referencia las variables, porqueno seran editadas
 	Si contadorProductos > 0 Entonces
 		Para i<-1 Hasta contadorProductos Hacer
 			Escribir "Producto ",i,":"
